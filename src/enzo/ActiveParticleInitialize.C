@@ -34,7 +34,7 @@ int ActiveParticleInitialize(HierarchyEntry *Grids[], TopGridData *MetaData,
 			     int NumberOfGrids, LevelHierarchyEntry *LevelArray[], 
 			     int ThisLevel)
 {
-
+  return SUCCESS;
   int i;
 
   /* Return if this does not concern us */

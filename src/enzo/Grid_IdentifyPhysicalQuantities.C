@@ -33,11 +33,11 @@ int grid::IdentifyPhysicalQuantities(int &DensNum, int &GENum, int &Vel1Num,
   DensNum = GENum = Vel1Num = Vel2Num = Vel3Num = TENum = 0;
  
   /* Find Density, if possible. */
- 
+  
   if ((DensNum = FindField(Density, FieldType, NumberOfBaryonFields)) < 0) {
     ENZO_FAIL("GIPQ: Cannot find density.");
   }
- 
+
   /* Find Total energy, if possible. */
  
   if ((TENum = FindField(TotalEnergy, FieldType, NumberOfBaryonFields)) < 0) {
@@ -309,6 +309,7 @@ int grid::IdentifyPotentialField(int &PotenNum, int &Acce1Num, int &Acce2Num, in
 
 int grid::IdentifyPotentialField(int &PotenNum)
 {
+  return SUCCESS;
   PotenNum = 0;
 
   if ((PotenNum = FindField(GravPotential, FieldType, NumberOfBaryonFields)) < 0) {
