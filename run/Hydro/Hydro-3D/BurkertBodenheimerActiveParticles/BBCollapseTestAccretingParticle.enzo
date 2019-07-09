@@ -79,7 +79,7 @@ Mu  			    = 3.0
 #  set grid refinement parameters
 #
 StaticHierarchy           = 0          // dynamic hierarchy
-MaximumRefinementLevel    = 2         // use up to 10 levels
+MaximumRefinementLevel    = 4         // use up to 10 levels
 RefineBy                  = 2          // refinement factor
 CellFlaggingMethod        = 6         // use Truelove criterion for refinement 
 MinimumEfficiency         = 0.3
@@ -98,5 +98,5 @@ ComputePotential          = 1
 #
 #  active particle parameters
 #
-AppendActiveParticleType = AccretingParticle
-
+AppendActiveParticleType = SmartStar
+ActiveParticleDensityThreshold = 7e+06

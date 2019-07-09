@@ -309,7 +309,7 @@ int WriteParameterFile(FILE *fptr, TopGridData &MetaData, char *name = NULL)
   fprintf(fptr, "HydroMethod                    = %"ISYM"\n", HydroMethod);
   fprintf(fptr, "huge_number                    = %e\n", huge_number);
   fprintf(fptr, "tiny_number                    = %e\n", tiny_number);
-  fprintf(fptr, "Gamma                          = %"GSYM"\n", Gamma);
+  fprintf(fptr, "Gamma                          = %"GOUTSYM"\n", Gamma);
   fprintf(fptr, "PressureFree                   = %"ISYM"\n", PressureFree);
   /* FDM: write FDM parameters */  
   fprintf(fptr, "QuantumPressure                = %"ISYM"\n", QuantumPressure);

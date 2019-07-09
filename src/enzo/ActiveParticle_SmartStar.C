@@ -9,7 +9,7 @@
 
 #include "ActiveParticle_SmartStar.h"
 #include "phys_constants.h"
-#define SSDEBUG 0
+#define SSDEBUG 1
 #define SSDEBUG_TOTALMASS 0
 
 #define DYNAMIC_ACCRETION_RADIUS 0
@@ -17,7 +17,7 @@
 #define MINIMUMPOTENTIAL 0
 #define CALCDIRECTPOTENTIAL 0
 #define JEANSREFINEMENT  1
-#define MASSTHRESHOLDCHECK 1
+#define MASSTHRESHOLDCHECK 0
 #define JEANSLENGTHCALC    1
 #define MASSTHRESHOLD      30                       //Msolar in grid
 #define COOLING_TIME       0
@@ -359,8 +359,9 @@ int ActiveParticleType_SmartStar::EvaluateFormation
 	 * to change to a bluer spectrum.
 	 */
 #if SSDEBUG
-	printf("Forming a SMS - H2Fraction (Threshold) = %e (%e) \n",
-	       data.H2Fraction[index],  PopIIIH2CriticalFraction);
+	if(MultiSpecies > 1)
+	  printf("Forming a SMS - H2Fraction (Threshold) = %e (%e) \n",
+		 data.H2Fraction[index],  PopIIIH2CriticalFraction);
 #endif
 	np->ParticleClass = SMS;      //1
 	np->RadiationLifetime=SmartStarSMSLifetime*yr_s/data.TimeUnits;

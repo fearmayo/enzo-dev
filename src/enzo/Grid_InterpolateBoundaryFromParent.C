@@ -120,7 +120,7 @@ int grid::InterpolateBoundaryFromParent(grid *ParentGrid)
         ENZO_FAIL("No density field!\n");
       }
     }
-    printf("densfield = %d\n", densfield);
+
     /* Set up array of flags if we are using SecondOrderB interpolation
        method.  These flags indicate if the quantity must always by > 0.
        For Zeus interpolation, they are overloaded as cell vs. face flags. */
@@ -363,8 +363,6 @@ int grid::InterpolateBoundaryFromParent(grid *ParentGrid)
     } // ENDIF !AccelerationHack
 
     /* Loop over all the fields. */
-    for(int j = 0; j < NumberOfBaryonFields; j++)
-      printf("ParentTemp[j][0] = %f\n", ParentTemp[j][10]);
     for (field = 0; field < NumberOfBaryonFields; field++) {
  
       if (HydroMethod == Zeus_Hydro)
@@ -392,11 +390,6 @@ int grid::InterpolateBoundaryFromParent(grid *ParentGrid)
 				  TemporaryField, TempDim, ZeroVector, Work,
 				  &FieldInterpolationMethod,
 				  &SecondOrderBFlag[field], &interp_error);
-	printf("interpolating field (%d) %s\n", field, DataLabel[field]);
-	
-	if(field == 1) {
-	  exit(-99);
-	}
 	if (interp_error) {
 	  printf("P%"ISYM": Error interpolating field %"ISYM" (%s).\n"
 		     "ParentGrid ID = %"ISYM"\n"
@@ -413,7 +406,6 @@ int grid::InterpolateBoundaryFromParent(grid *ParentGrid)
 		     this->GridLeftEdge[0], this->GridLeftEdge[1], 
 		     this->GridLeftEdge[2], this->GridRightEdge[0], 
 		 this->GridRightEdge[1], this->GridRightEdge[2]);
-	  printf("ParentTemp[field][0] = %f\n", ParentTemp[field][(int)ParentTempStartIndex]);
 	  ENZO_FAIL("");
 	}
       }
